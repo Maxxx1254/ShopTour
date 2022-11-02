@@ -3,11 +3,13 @@ package ru.netology.Tests;
 import lombok.SneakyThrows;
 import org.testng.annotations.Test;
 import ru.netology.Page.MainPage;
+import ru.netology.helpers.UserHelper;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class ShopTourCreditTests {
     MainPage main;
+    UserHelper user;
 
     @Test
     void shouldAllFieldsEmpty() {
@@ -25,7 +27,7 @@ public class ShopTourCreditTests {
     void shouldInvalidIncorrectDataNumberCode() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("12341234123412", "1", "3", "Varlamov", "99");
+        main.EnterFieldsIfCreditCard("12341234123412", "1", "3", UserHelper.getRandomCardholder(), "99");
         main.FieldCardError(0);
         main.FieldCardError(1);
         main.FieldCardError(2);
@@ -36,7 +38,7 @@ public class ShopTourCreditTests {
     void shouldInvalidMonthAndYearBiggest() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1234123412341234", "99", "99", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getInvalidCardNumber(), "99", "99", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.InvalidDate(0);
         main.InvalidDate(1);
     }
@@ -45,7 +47,7 @@ public class ShopTourCreditTests {
     void shouldInvalidYear() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1234123412341234", "10", "21", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getInvalidCardNumber(), "10", "21", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.ExpiredCardError();
     }
 
@@ -53,7 +55,7 @@ public class ShopTourCreditTests {
     void shouldInvalidMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1234123412341234", "10", "22", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getInvalidCardNumber(), "10", "22", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.InvalidDate(0);
     }
 
@@ -61,7 +63,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectName() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1234123412341234", "12", "23", "1231231", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getInvalidCardNumber(), "12", "23", "12312!@#", UserHelper.getCardCode());
         main.InvalidName();
     }
 
@@ -70,7 +72,7 @@ public class ShopTourCreditTests {
     void rejection() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("5555 6666 7777 8888", "12", "23", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getCardNumberDeclined(), "12", "23", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.pullRequest(0);
     }
 
@@ -79,7 +81,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1234123412341234", "12", "23", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getInvalidCardNumber(), "12", "23", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.pullRequest(1);
     }
 
@@ -88,7 +90,7 @@ public class ShopTourCreditTests {
     void approval() {
         open("http://localhost:8080/");
         main = new MainPage();
-        main.EnterFieldsIfCreditCard("1111 2222 3333 4444", "12", "23", "Varlamov", "999");
+        main.EnterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), "12", "23", UserHelper.getRandomCardholder(), UserHelper.getCardCode());
         main.pullRequest(0);
     }
 }
