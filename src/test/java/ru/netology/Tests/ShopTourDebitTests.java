@@ -1,4 +1,4 @@
-package ru.netology.ShopTourDebitTests;
+package ru.netology.Tests;
 
 import org.testng.annotations.Test;
 import ru.netology.Page.MainPage;

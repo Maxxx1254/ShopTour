@@ -1,5 +1,6 @@
-package ru.netology.ShopTourDebitTests;
+package ru.netology.Tests;
 
+import lombok.SneakyThrows;
 import org.testng.annotations.Test;
 import ru.netology.Page.MainPage;
 
@@ -21,14 +22,13 @@ public class ShopTourCreditTests {
     }
 
     @Test
-    void shouldInvalidIncorrectData() {
+    void shouldInvalidIncorrectDataNumberCode() {
         open("http://localhost:8080/");
         main = new MainPage();
         main.EnterFieldsIfCreditCard("12341234123412", "1", "3", "Varlamov", "99");
         main.FieldCardError(0);
         main.FieldCardError(1);
         main.FieldCardError(2);
-        main.FieldCardholderError();
         main.FieldCardError(3);
     }
 
@@ -42,21 +42,19 @@ public class ShopTourCreditTests {
     }
 
     @Test
-    void shouldInvalidMonthAndYear() {
+    void shouldInvalidYear() {
         open("http://localhost:8080/");
         main = new MainPage();
         main.EnterFieldsIfCreditCard("1234123412341234", "10", "21", "Varlamov", "999");
-        main.InvalidDate(0);
-        main.InvalidDate(1);
+        main.ExpiredCardError();
     }
 
     @Test
-    void shouldInvalidMonthAndMonth() {
+    void shouldInvalidMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
         main.EnterFieldsIfCreditCard("1234123412341234", "10", "22", "Varlamov", "999");
         main.InvalidDate(0);
-        main.InvalidDate(1);
     }
 
     @Test
@@ -67,14 +65,25 @@ public class ShopTourCreditTests {
         main.InvalidName();
     }
 
+    @SneakyThrows
     @Test
     void rejection() {
         open("http://localhost:8080/");
         main = new MainPage();
         main.EnterFieldsIfCreditCard("5555 6666 7777 8888", "12", "23", "Varlamov", "999");
+        main.pullRequest(0);
+    }
+
+    @SneakyThrows
+    @Test
+    void shouldIncorrectNumber() {
+        open("http://localhost:8080/");
+        main = new MainPage();
+        main.EnterFieldsIfCreditCard("1234123412341234", "12", "23", "Varlamov", "999");
         main.pullRequest(1);
     }
 
+    @SneakyThrows
     @Test
     void approval() {
         open("http://localhost:8080/");
