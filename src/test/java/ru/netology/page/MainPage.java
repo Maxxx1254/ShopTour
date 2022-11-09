@@ -21,8 +21,10 @@ public class MainPage {
     private final ElementsCollection purchaseOnDebitCard = $$(withText("Купить"));
     private final SelenideElement tabPurchaseOnCredit = $(withText("Кредит по данным карты"));
     private final SelenideElement tabPurchaseOnDebit = $(withText("Оплата по карте"));
+    private final ElementsCollection fields = $$("[class='input__control']");
+    private final SelenideElement continueButton = $(withText("Продолжить"));
 
-    public void elementsComparison() {
+    public void elementsComparisonMainPage() {
         mainPage.should(visible);
         header.should(visible);
         image.should(visible);
@@ -31,11 +33,33 @@ public class MainPage {
         condition2.should(visible);
         condition3.should(visible);
         condition4.should(visible);
-        purchaseOnCredit.should(visible);
+        elementsComparisonDebitPage();
+        elementsComparisonCreditPage();
+    }
+
+    public DebitPage elementsComparisonDebitPage() {
         purchaseOnDebitCard.first().should(visible);
-        purchaseOnCredit.click();
-        tabPurchaseOnCredit.should(visible);
         purchaseOnDebitCard.first().click();
         tabPurchaseOnDebit.should(visible);
+        fields.get(0).should(visible);
+        fields.get(1).should(visible);
+        fields.get(2).should(visible);
+        fields.get(3).should(visible);
+        fields.get(4).should(visible);
+        continueButton.should(visible);
+        return new DebitPage();
+    }
+
+    public CreditPage elementsComparisonCreditPage() {
+        purchaseOnCredit.should(visible);
+        purchaseOnDebitCard.first().click();
+        tabPurchaseOnCredit.should(visible);
+        fields.get(0).should(visible);
+        fields.get(1).should(visible);
+        fields.get(2).should(visible);
+        fields.get(3).should(visible);
+        fields.get(4).should(visible);
+        continueButton.should(visible);
+        return new CreditPage();
     }
 }

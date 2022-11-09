@@ -1,13 +1,17 @@
 package ru.netology.helpers;
 
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Data
+@AllArgsConstructor
 public class UserHelper {
-    public static int numberYear;
-    public static int numberMonth;
+    private static int numberYear;
+    private static int numberMonth;
     private static final Faker faker = new Faker();
 
     public static String getValidCardNumberWithSpaces() {
@@ -24,6 +28,14 @@ public class UserHelper {
 
     public static String getCardNumberFromSeventeen() {
         return faker.numerify("#################");
+    }
+
+    public static int getNumberMonth(int numberMonth) {
+        return numberMonth;
+    }
+
+    public static int getNumberYear(int numberYear) {
+        return numberYear;
     }
 
     public static String getCardNumberApproved() {
@@ -74,10 +86,12 @@ public class UserHelper {
     public static String getFromOneNumber() {
         return faker.numerify("#");
     }
+
     public static String getNonExistentMonth() {
         int invalidVerifyCode = faker.number().numberBetween(13, 99);
         return String.valueOf(invalidVerifyCode);
     }
+
     public static String getEmptyField() {
         return " ";
     }

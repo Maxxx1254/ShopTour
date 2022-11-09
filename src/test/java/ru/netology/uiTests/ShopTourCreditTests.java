@@ -14,78 +14,72 @@ public class ShopTourCreditTests {
 
     @Test
     void testMainPage() {
-        main = new MainPage();
-        main.elementsComparison();
+        main.elementsComparisonMainPage();
+        main.elementsComparisonCreditPage();
     }
 
-    @SneakyThrows
     @Test
     void approval() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(0);
     }
 
-    @SneakyThrows
     @Test
     void rejection() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberDeclined(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(0);
     }
 
-    @SneakyThrows
     @Test
     void shouldIncorrectNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(1);
     }
 
-    @SneakyThrows
     @Test
     void shouldIncorrectNumberWithSpaces() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumberWithSpaces(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(1);
     }
 
-    @SneakyThrows
     @Test
     void shouldIncorrectNumberFromFifteen() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberFromFifteen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
 
-    @SneakyThrows
     @Test
     void shouldIncorrectNumberFromSeventeen() {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberFromSeventeen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(1);
     }
@@ -95,8 +89,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -106,8 +100,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromTwoLetters(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -117,8 +111,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getTwoSymbols(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -128,8 +122,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -139,8 +133,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getEmptyField(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -150,8 +144,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 0;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(0);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomInvalidMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.invalidDate(0);
     }
@@ -161,8 +155,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 5;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(5);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.invalidDate(0);
     }
@@ -172,8 +166,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getTwoSymbols(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -183,7 +176,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberYear = 0;
+        UserHelper.getNumberYear(0);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getNonExistentMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.invalidDate(0);
     }
@@ -194,7 +187,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth() + UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(1);
     }
@@ -204,7 +197,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -214,7 +207,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneLetter(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -224,7 +217,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getEmptyField(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -234,8 +227,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomInvalidYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.expiredCardError();
     }
@@ -245,8 +238,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 6;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(6);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.invalidDate(0);
     }
@@ -256,7 +249,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
+        UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -266,7 +259,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
+        UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneLetter(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -276,7 +269,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
+        UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getTwoSymbols(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -286,7 +279,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
+        UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear() + UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -296,7 +289,7 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
+        UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getEmptyField(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -306,8 +299,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
         credit.fieldCardError();
         //Вопрос, с чем мне сравнить выражение "Неверный формат" в поле владелец. По идее если бы этот элемент был, он бы сравнивался как я написал, но его нет и поэтому 3 в списке будет уведомление в поле CVC/CVV
@@ -318,8 +311,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
         credit.pullRequest(0);
     }
@@ -329,8 +322,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentyFiveLetter(), UserHelper.getThreeNumber());
         credit.pullRequest(0);
     }
@@ -340,8 +333,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Saltykov-Schedrin Mischael", UserHelper.getThreeNumber());
         credit.pullRequest(0);
     }
@@ -351,8 +344,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentySevenLetter(), UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -362,8 +355,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Иванов Иван", UserHelper.getThreeNumber());
         credit.fieldCardError();
     }
@@ -373,8 +366,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getTwoSymbols(), UserHelper.getThreeNumber());
         credit.fieldCardError();
         //Вопрос, с чем мне сравнить выражение "Неверный формат" в поле владелец. По идее если бы этот элемент был, он бы сравнивался как я написал, но его нет и поэтому 3 в списке будет уведомление в поле CVC/CVV
@@ -385,8 +378,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneNumber(), UserHelper.getThreeNumber());
         credit.fieldCardError();
         //Вопрос, с чем мне сравнить выражение "Неверный формат" в поле владелец. По идее если бы этот элемент был, он бы сравнивался как я написал, но его нет и поэтому 3 в списке будет уведомление в поле CVC/CVV
@@ -397,8 +390,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getEmptyField(), UserHelper.getThreeNumber());
         credit.fieldCardholderError();
     }
@@ -408,8 +401,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getEmptyField());
         credit.fieldCardError();
     }
@@ -419,8 +412,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromOneNumber());
         credit.fieldCardError();
     }
@@ -430,8 +423,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromTwoNumber());
         credit.fieldCardError();
     }
@@ -441,8 +434,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFourNumber());
         credit.pullRequest(0);
     }
@@ -452,8 +445,8 @@ public class ShopTourCreditTests {
         open("http://localhost:8080/");
         main = new MainPage();
         credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getTwoSymbols());
         credit.fieldCardError();
     }
@@ -462,9 +455,8 @@ public class ShopTourCreditTests {
     void shouldCardCodeOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromOneLetter());
         credit.fieldCardError();
     }
@@ -473,9 +465,8 @@ public class ShopTourCreditTests {
     void shouldIncorrectName() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
-        UserHelper.numberMonth = 1;
-        UserHelper.numberYear = 1;
+        UserHelper.getNumberMonth(1);
+        UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomInvalidCardholderFromNumbers(), UserHelper.getThreeNumber());
         credit.invalidName();
     }
