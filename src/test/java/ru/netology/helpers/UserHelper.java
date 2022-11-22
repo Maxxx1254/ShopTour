@@ -51,19 +51,19 @@ public class UserHelper {
     }
 
     public static String getRandomMonth() {
-        return LocalDate.now().plusMonths(numberMonth).format(DateTimeFormatter.ofPattern("MM"));
+        return LocalDate.now().plusMonths(UserHelper.getNumberMonth(numberMonth)).format(DateTimeFormatter.ofPattern("MM"));
     }
 
     public static String getRandomInvalidMonth() {
-        return LocalDate.now().minusMonths(numberMonth).format(DateTimeFormatter.ofPattern("MM"));
+        return LocalDate.now().minusMonths(UserHelper.getNumberMonth(numberMonth)).format(DateTimeFormatter.ofPattern("MM"));
     }
 
     public static String getRandomYear() {
-        return LocalDate.now().plusYears(numberYear).format(DateTimeFormatter.ofPattern("yy"));
+        return LocalDate.now().plusYears(UserHelper.getNumberYear(numberYear)).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String getRandomInvalidYear() {
-        return LocalDate.now().minusYears(numberYear).format(DateTimeFormatter.ofPattern("yy"));
+        return LocalDate.now().minusYears(UserHelper.getNumberYear(numberYear)).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String getRandomInvalidCardholderFromNumbers() {
