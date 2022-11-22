@@ -23,7 +23,7 @@ public class ShopTourDebitTests {
     void approval() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -34,7 +34,7 @@ public class ShopTourDebitTests {
     void rejection() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberDeclined(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -45,7 +45,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -56,7 +56,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectNumberWithSpaces() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumberWithSpaces(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -67,7 +67,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectNumberFromFifteen() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberFromFifteen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -78,7 +78,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectNumberFromSeventeen() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberFromSeventeen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -89,7 +89,7 @@ public class ShopTourDebitTests {
     void shouldCardNumberTwoNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -100,7 +100,7 @@ public class ShopTourDebitTests {
     void shouldCardNumberTwoLetters() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getFromTwoLetters(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -111,7 +111,7 @@ public class ShopTourDebitTests {
     void shouldCardNumberTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getTwoSymbols(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -122,7 +122,7 @@ public class ShopTourDebitTests {
     void shouldCardNumberOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -133,7 +133,7 @@ public class ShopTourDebitTests {
     void shouldCardNumberEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getEmptyField(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -144,7 +144,7 @@ public class ShopTourDebitTests {
     void shouldInvalidMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomInvalidMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.invalidDate(0);
@@ -154,7 +154,7 @@ public class ShopTourDebitTests {
     void shouldBagInFieldMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -165,7 +165,7 @@ public class ShopTourDebitTests {
     void shouldCardMonthTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getTwoSymbols(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -175,7 +175,7 @@ public class ShopTourDebitTests {
     void shouldInvalidBigMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(0);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getNonExistentMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.invalidDate(0);
@@ -186,7 +186,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectMonthFromThreeNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth() + UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.pullRequest(0);
@@ -196,7 +196,7 @@ public class ShopTourDebitTests {
     void shouldCardMonthOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -206,7 +206,7 @@ public class ShopTourDebitTests {
     void shouldCardMonthOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneLetter(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -216,7 +216,7 @@ public class ShopTourDebitTests {
     void shouldCardMonthEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getEmptyField(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -226,7 +226,7 @@ public class ShopTourDebitTests {
     void shouldInvalidYear() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomInvalidYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -237,7 +237,7 @@ public class ShopTourDebitTests {
     void shouldInvalidBigYear() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(6);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -248,7 +248,7 @@ public class ShopTourDebitTests {
     void shouldCardYearOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -258,8 +258,9 @@ public class ShopTourDebitTests {
     void shouldCardYearOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
-        UserHelper.getNumberMonth(1);        debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneLetter(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
+        debit = main.elementsComparisonDebitPage();
+        UserHelper.getNumberMonth(1);
+        debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneLetter(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
     }
 
@@ -267,7 +268,7 @@ public class ShopTourDebitTests {
     void shouldCardYearTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getTwoSymbols(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -277,7 +278,7 @@ public class ShopTourDebitTests {
     void shouldCardYearFromThreeNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear() + UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.pullRequest(0);
@@ -287,7 +288,7 @@ public class ShopTourDebitTests {
     void shouldCardYearEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getEmptyField(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         debit.fieldCardError();
@@ -297,7 +298,7 @@ public class ShopTourDebitTests {
     void shouldCardholderOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
@@ -309,6 +310,7 @@ public class ShopTourDebitTests {
     void shouldCardholderFromTwoLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
@@ -319,7 +321,7 @@ public class ShopTourDebitTests {
     void shouldCardholderFromTwentyFiveLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentyFiveLetter(), UserHelper.getThreeNumber());
@@ -330,7 +332,7 @@ public class ShopTourDebitTests {
     void shouldCardholderFromWithSpaces() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Saltykov-Schedrin Mischael", UserHelper.getThreeNumber());
@@ -341,7 +343,7 @@ public class ShopTourDebitTests {
     void shouldCardholderFromTwentySevenLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentySevenLetter(), UserHelper.getThreeNumber());
@@ -352,7 +354,7 @@ public class ShopTourDebitTests {
     void shouldCardholderFromRussianLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Иванов Иван", UserHelper.getThreeNumber());
@@ -363,7 +365,7 @@ public class ShopTourDebitTests {
     void shouldCardholderTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getTwoSymbols(), UserHelper.getThreeNumber());
@@ -375,7 +377,7 @@ public class ShopTourDebitTests {
     void shouldCardholderOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneNumber(), UserHelper.getThreeNumber());
@@ -387,7 +389,7 @@ public class ShopTourDebitTests {
     void shouldCardholderEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getEmptyField(), UserHelper.getThreeNumber());
@@ -398,7 +400,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getEmptyField());
@@ -409,7 +411,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromOneNumber());
@@ -420,7 +422,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeTwoNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromTwoNumber());
@@ -431,7 +433,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeFourNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFourNumber());
@@ -442,7 +444,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getTwoSymbols());
@@ -453,7 +455,7 @@ public class ShopTourDebitTests {
     void shouldCardCodeOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromOneLetter());
@@ -464,7 +466,7 @@ public class ShopTourDebitTests {
     void shouldIncorrectName() {
         open("http://localhost:8080/");
         main = new MainPage();
-        debit = new DebitPage();
+        debit = main.elementsComparisonDebitPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         debit.enterFieldsIfDebitCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomInvalidCardholderFromNumbers(), UserHelper.getThreeNumber());

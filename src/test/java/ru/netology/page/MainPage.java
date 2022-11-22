@@ -38,8 +38,8 @@ public class MainPage {
     }
 
     public DebitPage elementsComparisonDebitPage() {
-        purchaseOnDebitCard.first().should(visible);
         purchaseOnDebitCard.first().click();
+        purchaseOnDebitCard.first().should(visible);
         tabPurchaseOnDebit.should(visible);
         fields.get(0).should(visible);
         fields.get(1).should(visible);
@@ -52,7 +52,7 @@ public class MainPage {
 
     public CreditPage elementsComparisonCreditPage() {
         purchaseOnCredit.should(visible);
-        purchaseOnDebitCard.first().click();
+        purchaseOnCredit.click();
         tabPurchaseOnCredit.should(visible);
         fields.get(0).should(visible);
         fields.get(1).should(visible);

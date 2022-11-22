@@ -22,7 +22,7 @@ public class ShopTourCreditTests {
     void approval() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -33,7 +33,7 @@ public class ShopTourCreditTests {
     void rejection() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberDeclined(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -44,7 +44,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -55,7 +55,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectNumberWithSpaces() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumberWithSpaces(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -66,7 +66,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectNumberFromFifteen() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberFromFifteen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -77,7 +77,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectNumberFromSeventeen() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberFromSeventeen(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -88,7 +88,7 @@ public class ShopTourCreditTests {
     void shouldCardNumberTwoNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -99,7 +99,7 @@ public class ShopTourCreditTests {
     void shouldCardNumberTwoLetters() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromTwoLetters(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -110,7 +110,7 @@ public class ShopTourCreditTests {
     void shouldCardNumberTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getTwoSymbols(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -121,7 +121,7 @@ public class ShopTourCreditTests {
     void shouldCardNumberOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getFromOneNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -132,7 +132,7 @@ public class ShopTourCreditTests {
     void shouldCardNumberEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getEmptyField(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -143,7 +143,7 @@ public class ShopTourCreditTests {
     void shouldInvalidMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(0);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomInvalidMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -154,7 +154,7 @@ public class ShopTourCreditTests {
     void shouldBagInFieldMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(5);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -165,7 +165,7 @@ public class ShopTourCreditTests {
     void shouldCardMonthTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getTwoSymbols(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -175,7 +175,7 @@ public class ShopTourCreditTests {
     void shouldInvalidBigMonth() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(0);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getNonExistentMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.invalidDate(0);
@@ -186,7 +186,7 @@ public class ShopTourCreditTests {
     void shouldIncorrectMonthFromThreeNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth() + UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.pullRequest(1);
@@ -196,7 +196,7 @@ public class ShopTourCreditTests {
     void shouldCardMonthOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneNumber(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -206,7 +206,7 @@ public class ShopTourCreditTests {
     void shouldCardMonthOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getFromOneLetter(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -216,7 +216,7 @@ public class ShopTourCreditTests {
     void shouldCardMonthEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getEmptyField(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -226,7 +226,7 @@ public class ShopTourCreditTests {
     void shouldInvalidYear() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomInvalidYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -237,7 +237,7 @@ public class ShopTourCreditTests {
     void shouldInvalidBigYear() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(6);
         credit.enterFieldsIfCreditCard(UserHelper.getValidCardNumber(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
@@ -248,7 +248,7 @@ public class ShopTourCreditTests {
     void shouldCardYearOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -258,7 +258,7 @@ public class ShopTourCreditTests {
     void shouldCardYearOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getFromOneLetter(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -268,7 +268,7 @@ public class ShopTourCreditTests {
     void shouldCardYearTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getTwoSymbols(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -278,7 +278,7 @@ public class ShopTourCreditTests {
     void shouldCardYearFromThreeNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear() + UserHelper.getFromOneNumber(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -288,7 +288,7 @@ public class ShopTourCreditTests {
     void shouldCardYearEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getEmptyField(), UserHelper.getRandomValidCardholder(), UserHelper.getThreeNumber());
         credit.fieldCardError();
@@ -298,7 +298,7 @@ public class ShopTourCreditTests {
     void shouldCardholderOneLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
@@ -310,7 +310,7 @@ public class ShopTourCreditTests {
     void shouldCardholderFromTwoLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneLetter(), UserHelper.getThreeNumber());
@@ -321,7 +321,7 @@ public class ShopTourCreditTests {
     void shouldCardholderFromTwentyFiveLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentyFiveLetter(), UserHelper.getThreeNumber());
@@ -332,7 +332,7 @@ public class ShopTourCreditTests {
     void shouldCardholderFromWithSpaces() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Saltykov-Schedrin Mischael", UserHelper.getThreeNumber());
@@ -343,7 +343,7 @@ public class ShopTourCreditTests {
     void shouldCardholderFromTwentySevenLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getCardholderFromTwentySevenLetter(), UserHelper.getThreeNumber());
@@ -354,7 +354,7 @@ public class ShopTourCreditTests {
     void shouldCardholderFromRussianLetter() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), "Иванов Иван", UserHelper.getThreeNumber());
@@ -365,7 +365,7 @@ public class ShopTourCreditTests {
     void shouldCardholderTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getTwoSymbols(), UserHelper.getThreeNumber());
@@ -377,7 +377,7 @@ public class ShopTourCreditTests {
     void shouldCardholderOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getFromOneNumber(), UserHelper.getThreeNumber());
@@ -389,7 +389,7 @@ public class ShopTourCreditTests {
     void shouldCardholderEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getEmptyField(), UserHelper.getThreeNumber());
@@ -400,7 +400,7 @@ public class ShopTourCreditTests {
     void shouldCardCodeEmpty() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getEmptyField());
@@ -411,7 +411,7 @@ public class ShopTourCreditTests {
     void shouldCardCodeOneNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromOneNumber());
@@ -422,7 +422,7 @@ public class ShopTourCreditTests {
     void shouldCardCodeTwoNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFromTwoNumber());
@@ -433,7 +433,7 @@ public class ShopTourCreditTests {
     void shouldCardCodeFourNumber() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getFourNumber());
@@ -444,7 +444,7 @@ public class ShopTourCreditTests {
     void shouldCardCodeTwoSymbol() {
         open("http://localhost:8080/");
         main = new MainPage();
-        credit = new CreditPage();
+        credit = main.elementsComparisonCreditPage();
         UserHelper.getNumberMonth(1);
         UserHelper.getNumberYear(1);
         credit.enterFieldsIfCreditCard(UserHelper.getCardNumberApproved(), UserHelper.getRandomMonth(), UserHelper.getRandomYear(), UserHelper.getRandomValidCardholder(), UserHelper.getTwoSymbols());
