@@ -31,6 +31,5 @@ java -jar .\artifacts\aqa-shop\aqa-shop.jar
 ```
 .\gradlew allureServe
 ```
-## Лицензия
-
-Опишите условия лицензии
+## Ссылки
+[План выполнения ТЗ.](https://github.com/Maxxx1254/ShopTour/blob/main/docs/Plan.md)
