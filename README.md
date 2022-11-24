@@ -21,7 +21,7 @@ docker-compose up -d
 ```
 2. Запустить через терминал IDEA jar'ник с помощью команды:
 ```
-java -jar .\artifacts\aqa-shop\aqa-shop.jar
+java -jar .\artifacts\aqa-shop.jar
 ```
 Запустить тесты:
 ```
